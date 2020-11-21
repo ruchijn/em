@@ -189,7 +189,8 @@ export const initialState = (created: Timestamp = timestamp()) => {
   Object.keys(MODALS).forEach(key => {
     // initial modal states
     state.modals[MODALS[key]] = {
-      complete: globals.disableTutorial || JSON.parse(localStorage['modal-complete-' + MODALS[key]] || 'false'),
+      complete: globals.disableTutorial ||
+        JSON.parse(localStorage['modal-complete-' + MODALS[key]] || 'false'),
       hideuntil: JSON.parse(localStorage['modal-hideuntil-' + MODALS[key]] || '0')
     }
   })

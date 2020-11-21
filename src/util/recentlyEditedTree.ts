@@ -142,7 +142,11 @@ const nodeChange = (tree: Tree, oldPath: Path, newPath: Path) => {
             const updatedDescendantPath = newPath.concat(descendant.path.slice(newPath.length))
             const updatedDescendantContext = contextEncode(pathToContext(updatedDescendantPath))
             _.unset(tree, contextEncode(pathToContext(descendant.path)))
-            _.set(tree, updatedDescendantContext, { leaf: true, lastUpdated: timestamp(), path: updatedDescendantPath })
+            _.set(tree, updatedDescendantContext, {
+              leaf: true,
+              lastUpdated: timestamp(),
+              path: updatedDescendantPath
+            })
           }
         })
         if (descendantReplaced) nodeChange(tree, oldPath, newPath) // called once again to remove merge inconsitencty that might occur while replacing descendants by ancestor
@@ -167,7 +171,8 @@ const nodeChange = (tree: Tree, oldPath: Path, newPath: Path) => {
           */
           const notMergeableDepthDiff = shortContext.length - commonPath.length > 1
           // for restricting merge of direct cousins like A.B.C.F and A.B.D.E
-          const isDirectCousin = newContext.length === descendantContext.length && newContext.length - commonPath.length === 2
+          const isDirectCousin = newContext.length === descendantContext.length &&
+            newContext.length - commonPath.length === 2
 
           // siblings A.B.C and A.B.D ---> A.B.D
           if (isSibling) {
@@ -182,7 +187,11 @@ const nodeChange = (tree: Tree, oldPath: Path, newPath: Path) => {
           else if (!(notMergeableDepthDiff || isDirectCousin)) {
             isMerged = true
             _.unset(tree, shortContext.slice(0, commonPath.length + 1))
-            _.set(tree, longContext, { leaf: true, lastUpdated: timestamp(), path: newContext.length > descendantContext.length ? newPath : descendant.path })
+            _.set(tree, longContext, {
+              leaf: true,
+              lastUpdated: timestamp(),
+              path: newContext.length > descendantContext.length ? newPath : descendant.path
+            })
           }
         })
         // adding new thought to the tree
@@ -227,7 +236,11 @@ const nodeDelete = (tree: Tree, oldPath: Path, timestampUpdate = true) => {
       const pathBeingMerged = commonPath.slice(0, closestAncestor.path.length + 1)
       _.unset(tree, pathBeingMerged) // deleting the merged path
       findTreeDescendants(tree, nodeToMergeIntoPath).forEach(descendant => {
-        _.set(tree, contextEncode(pathToContext(descendant.path)), { leaf: true, lastUpdated: timestampUpdate ? timestamp() : descendant.lastUpdated, path: descendant.path })
+        _.set(tree, contextEncode(pathToContext(descendant.path)), {
+          leaf: true,
+          lastUpdated: timestampUpdate ? timestamp() : descendant.lastUpdated,
+          path: descendant.path
+        })
       })
     }
     /*
@@ -248,7 +261,11 @@ const nodeDelete = (tree: Tree, oldPath: Path, timestampUpdate = true) => {
      */
     else {
       _.unset(tree, commonPath)
-      _.set(tree, parentOf(commonPath), { leaf: true, lastUpdated: timestamp(), path: oldPath.slice(0, parentOf(commonPath).length) })
+      _.set(tree, parentOf(commonPath), {
+        leaf: true,
+        lastUpdated: timestamp(),
+        path: oldPath.slice(0, parentOf(commonPath).length)
+      })
     }
   }
 }

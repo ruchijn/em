@@ -126,6 +126,30 @@
         "flatTernaryExpressions": true
       }
     ],
+    "max-len": [
+      2,
+      {
+        "code": 108,
+        "ignoreComments": true,
+        /*
+
+          # import statements
+          ^import .*|
+
+          # const declarations
+          ^\\s*(export )?const .*=>|
+
+          # function declarations
+          ^\\s*(export )?function .*\\{|
+
+          # arrays of string literals
+          const .* = \\[('.*'(, )?)+\\]
+        */
+        "ignorePattern": "^import .*|^\\s*(export )?const .*=>|^\\s*(export )?function .*|const .* = \\[('.*'(, )?)+\\]",
+        "ignoreRegExpLiterals": true,
+        "tabWidth": 2
+      }
+    ],
     "no-var": 2,
     "object-curly-newline": 0,
     "object-property-newline": 0,

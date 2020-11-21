@@ -113,7 +113,9 @@ const saveThoughts = (state: State, contextIndexUpdates: Index<Parent>, thoughtI
         contextIndexUpdates[contextEncoded]?.children ||
         state.thoughts.contextIndex[contextEncoded]?.children || []
       const existingParent = {
-        ...accum.contextIndex[contextEncoded] || contextIndexUpdates[contextEncoded] || state.thoughts.contextIndex[contextEncoded],
+        ...accum.contextIndex[contextEncoded] ||
+          contextIndexUpdates[contextEncoded] ||
+          state.thoughts.contextIndex[contextEncoded],
         children: existingChildren,
       }
 

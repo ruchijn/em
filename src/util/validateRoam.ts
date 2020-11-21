@@ -24,7 +24,9 @@ const isRoamBlock = (children: RoamBlock[] = []): boolean => children.every(({
 export const validateRoam = (input: string) => {
   try {
     const json: RoamPage[] = JSON.parse(input)
-    return json.every(({ title, children }) => typeof title === 'string' && Array.isArray(children) && isRoamBlock(children))
+    return json.every(({ title, children }) =>
+      typeof title === 'string' && Array.isArray(children) && isRoamBlock(children)
+    )
   }
   catch {
     return false

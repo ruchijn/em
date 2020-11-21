@@ -47,7 +47,9 @@ const contextWithThoughtRank = (state: State, contextInfo: ThoughtContext | null
     const matchedContext = () => {
       const contextToMatch = contextInfo.context.slice(0, index + 1)
       // const filterRoot = context => context.filter(item => item !== ROOT_TOKEN)
-      return thought.contexts.find(thoughtContext => equalArrays([...unroot(thoughtContext.context), thought.value], contextToMatch))!
+      return thought.contexts.find(thoughtContext =>
+        equalArrays([...unroot(thoughtContext.context), thought.value], contextToMatch)
+      )!
     }
     // the root thought doesn't have a rank
     return value === ROOT_TOKEN ? RANKED_ROOT[0] : { value, rank: matchedContext().rank }
@@ -93,7 +95,9 @@ const getPathFromContextChain = (state: State, contextChain: SimplePath[]): Path
   // last of second last item in context chain gives us the current context
   const contextPath = head(contextChain.slice(0, -1))
   const contextChild = head(contextPath)
-  const matchedContextWithRanks = contextWithThoughtRank(state, getMatchedContext(state, contextChild, contextChain)!)
+  const matchedContextWithRanks = contextWithThoughtRank(
+    state,
+    getMatchedContext(state, contextChild, contextChain)!)
   return [...matchedContextWithRanks || [], contextChild, ...head(contextChain).slice(1)]
 }
 
@@ -105,7 +109,11 @@ const getContextFromContextChain = (state: State, contextChain: SimplePath[]): C
   const contextPath = head(contextChain.slice(0, -1))
   const contextChild = head(contextPath)
   const matchedContext = getMatchedContext(state, contextChild, contextChain)!
-  return [...matchedContext.context, contextChild.value, ...head(contextChain).slice(1).map(context => context.value)]
+  return [
+    ...matchedContext.context,
+    contextChild.value,
+    ...head(contextChain).slice(1).map(context => context.value)
+  ]
 }
 
 /**
@@ -138,7 +146,10 @@ const nextInContextView = (state: State, value: string, rank: number, path: Path
   }
 
   // if the focus is on a thought with context view open, move it into context view - jump in
-  if (!contextWithoutChildren && !ignoreChildren && isContextViewActive(state, pathToContext(path)) && firstChild()) {
+  if (!contextWithoutChildren &&
+    !ignoreChildren &&
+    isContextViewActive(state, pathToContext(path)) && firstChild()
+  ) {
     const currentThought = head(path)
     // jump out if there are no context children
     return {
@@ -148,7 +159,9 @@ const nextInContextView = (state: State, value: string, rank: number, path: Path
   }
   // if the focus is on or within a context
   else if (isContextViewActive(state, pathToContext(rankedContext))) {
-    const firstChild = perma(() => firstVisibleChild(state, getContextFromContextChain(state, contextChain) || [ROOT_TOKEN]))
+    const firstChild = perma(() =>
+      firstVisibleChild(state, getContextFromContextChain(state, contextChain) || [ROOT_TOKEN])
+    )
 
     const nextSibling = nextSiblingContext(state, rank, context)
     const rankedContextHead = head(rankedContext)
@@ -161,7 +174,13 @@ const nextInContextView = (state: State, value: string, rank: number, path: Path
         nextThoughts: [...nextSibling, rankedContextHead],
         contextChain: contextChain.slice(0, -1)
       }
-      : nextInThoughtView(state, rankedContextHead.value, parentOf(context), rankedContextHead.rank, parentOf(path), contextChain.slice(0, -1), true)
+      : nextInThoughtView(
+        state,
+        rankedContextHead.value,
+        parentOf(context), rankedContextHead.rank,
+        parentOf(path), contextChain.slice(0, -1),
+        true
+      )
   }
 
   return null
@@ -187,11 +206,19 @@ const nextInThoughtView = (state: State, value: string, context: Context, rank: 
 
   if (contextChain.length > 1 && _.last(contextChain)!.length === 1) return null
 
-  const firstChild = !ignoreChildren && firstVisibleChild(state, contextChain.length > 1 ? getContextFromContextChain(state, contextChain) : pathToContext(path) || [ROOT_TOKEN])
+  const firstChild = !ignoreChildren &&
+    firstVisibleChild(state, contextChain.length > 1
+      ? getContextFromContextChain(state, contextChain)
+      : pathToContext(path) || [ROOT_TOKEN]
+    )
 
-  const thoughtViewPath = perma(() => !ignoreChildren && contextChain.length > 1 ? getPathFromContextChain(state, contextChain) : path)
+  const thoughtViewPath = perma(() =>
+    !ignoreChildren && contextChain.length > 1 ? getPathFromContextChain(state, contextChain) : path
+  )
   // pathToContext is expensive than duplicate condition check hence using the former
-  const thoughtViewContext = perma(() => !ignoreChildren && contextChain.length > 1 ? pathToContext(parentOf(thoughtViewPath())) : context)
+  const thoughtViewContext = perma(() =>
+    !ignoreChildren && contextChain.length > 1 ? pathToContext(parentOf(thoughtViewPath())) : context
+  )
 
   /** Returns the next uncle in the thought view. */
   const nextUncleInThoughtView = () => {
@@ -204,7 +231,15 @@ const nextInThoughtView = (state: State, value: string, context: Context, rank: 
       const parentContext = context.length === 1 ? [ROOT_TOKEN] : parentOf(thoughtViewContext())
       const contextChainForParentThought = [...contextChain.slice(0, -1), parentOf(head(contextChain))]
       const parentPath = parentOf(thoughtViewPath())
-      return nextInThoughtView(state, parentThought.value, parentContext, parentThought.rank, parentPath, contextChainForParentThought, true)
+      return nextInThoughtView(
+        state,
+        parentThought.value,
+        parentContext,
+        parentThought.rank,
+        parentPath,
+        contextChainForParentThought,
+        true
+      )
     }
 
     return parentThought
@@ -218,13 +253,27 @@ const nextInThoughtView = (state: State, value: string, context: Context, rank: 
 
   /** Gets the next uncle in the Context View. */
   const nextUncleInContextView = () => {
-    const pathToFirstThoughtInContext = parentOf(contextChain.length > 1 ? contextChain.flat() : thoughtViewPath())
+    const pathToFirstThoughtInContext = parentOf(contextChain.length > 1
+      ? contextChain.flat()
+      : thoughtViewPath()
+    )
     // restricts from working with multilevel context chains
     const rankedContextOfCurrentContext = contextChain[contextChain.length - 2]
-    const contextChainTillFirstChildOfContext = [...contextChain.slice(0, -1), [head(contextChain)[0]] as SimplePath]
+    const contextChainTillFirstChildOfContext = [
+      ...contextChain.slice(0, -1),
+      [head(contextChain)[0]] as SimplePath
+    ]
     const firstThoughtInContext = head(contextChain)[0]
 
-    return nextInContextView(state, firstThoughtInContext.value, firstThoughtInContext.rank, pathToFirstThoughtInContext, rankedContextOfCurrentContext, contextChainTillFirstChildOfContext, true)
+    return nextInContextView(
+      state,
+      firstThoughtInContext.value,
+      firstThoughtInContext.rank,
+      pathToFirstThoughtInContext,
+      rankedContextOfCurrentContext,
+      contextChainTillFirstChildOfContext,
+      true
+    )
   }
 
   const nextSibling = perma(() => thoughtNextSibling(state, value, thoughtViewContext(), rank))
@@ -246,7 +295,8 @@ export const nextThought = (state: State, path: Path = RANKED_ROOT) => {
   const contextChain = splitChain(state, path)
   const context = pathToContext(parentPath)
 
-  return isContextViewActive(state, pathToContext(parentPath)) || isContextViewActive(state, pathToContext(path))
+  return isContextViewActive(state, pathToContext(parentPath)) ||
+    isContextViewActive(state, pathToContext(path))
     ? nextInContextView(state, value, rank, path, parentPath, contextChain)!
     : nextInThoughtView(state, value, context, rank, path, contextChain)!
 }
