@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>importOnFirstMatchPath | em</title>
+	<title>constants | em</title>
 	<meta name="description" content="Documentation for em">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,10 +54,10 @@
 					<a href="test_helpers.html">test-helpers</a>
 				</li>
 				<li>
-					<a href="test_helpers.importonfirstmatchpath.html">importOnFirstMatchPath</a>
+					<a href="test_helpers.constants.html">constants</a>
 				</li>
 			</ul>
-			<h1>Module importOnFirstMatchPath</h1>
+			<h1>Module constants</h1>
 		</div>
 	</div>
 </header>
@@ -67,47 +67,37 @@
 			<section class="tsd-panel-group tsd-index-group">
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
-						<section class="tsd-index-section ">
-							<h3>Functions</h3>
+						<section class="tsd-index-section tsd-is-not-exported">
+							<h3>Enumerations</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-function tsd-parent-kind-module"><a href="test_helpers.importonfirstmatchpath.html#importonfirstmatchpathactioncreator" class="tsd-kind-icon">import<wbr>OnFirst<wbr>Match<wbr>Path<wbr>Action<wbr>Creator</a></li>
+								<li class="tsd-kind-enum tsd-parent-kind-module tsd-is-not-exported"><a href="../enums/test_helpers.constants.gestureenum.html" class="tsd-kind-icon">gesture<wbr>Enum</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Variables</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-variable tsd-parent-kind-module"><a href="test_helpers.constants.html#gestures" class="tsd-kind-icon">gestures</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Functions</h2>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
-					<a name="importonfirstmatchpathactioncreator" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagConst">Const</span> import<wbr>OnFirst<wbr>Match<wbr>Path<wbr>Action<wbr>Creator</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">import<wbr>OnFirst<wbr>Match<wbr>Path<wbr>Action<wbr>Creator<span class="tsd-signature-symbol">(</span>pathUnranked<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span>, text<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_types_.html#thunk" class="tsd-signature-type">Thunk</a></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/cybersemics/em/blob/403a2ae/src/test-helpers/importOnFirstMatchPath.ts#L6">src/test-helpers/importOnFirstMatchPath.ts:6</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>A thunk that imports texts on the given unranked path.</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>pathUnranked: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></h5>
-								</li>
-								<li>
-									<h5>text: <span class="tsd-signature-type">string</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="_types_.html#thunk" class="tsd-signature-type">Thunk</a></h4>
-						</li>
-					</ul>
+				<h2>Variables</h2>
+				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-module">
+					<a name="gestures" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> gestures</h3>
+					<div class="tsd-signature tsd-kind-icon">gestures<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{}</span><span class="tsd-signature-symbol"> = gestureEnum as {[key in keyof typeof gestureEnum]: GesturePath}</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/ruchijn/em/blob/596077d/src/test-helpers/constants.ts#L10">src/test-helpers/constants.ts:10</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+						</ul>
+					</div>
 				</section>
 			</section>
 		</div>
@@ -119,6 +109,9 @@
 						<ul>
 							<li class=" tsd-kind-module tsd-parent-kind-module">
 								<a href="test_helpers.checkdataintegrity.html">check<wbr>Data<wbr>Integrity</a>
+							</li>
+							<li class="current tsd-kind-module tsd-parent-kind-module">
+								<a href="test_helpers.constants.html">constants</a>
 							</li>
 							<li class=" tsd-kind-module tsd-parent-kind-module">
 								<a href="test_helpers.createmockstore.html">create<wbr>Mock<wbr>Store</a>
@@ -144,8 +137,11 @@
 							<li class=" tsd-kind-module tsd-parent-kind-module">
 								<a href="test_helpers.executeshortcut.html">execute<wbr>Shortcut</a>
 							</li>
-							<li class="current tsd-kind-module tsd-parent-kind-module">
-								<a href="test_helpers.importonfirstmatchpath.html">import<wbr>OnFirst<wbr>Match<wbr>Path</a>
+							<li class=" tsd-kind-module tsd-parent-kind-module">
+								<a href="test_helpers.getlexemefromdb.html">get<wbr>Lexeme<wbr>FromDB</a>
+							</li>
+							<li class=" tsd-kind-module tsd-parent-kind-module">
+								<a href="test_helpers.importtocontext.html">import<wbr>ToContext</a>
 							</li>
 							<li class=" tsd-kind-module tsd-parent-kind-module">
 								<a href="test_helpers.mock_debounce_throttle.html">mock-<wbr>debounce-<wbr>throttle</a>
@@ -165,8 +161,11 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="test_helpers.importonfirstmatchpath.html#importonfirstmatchpathactioncreator" class="tsd-kind-icon">import<wbr>OnFirst<wbr>Match<wbr>Path<wbr>Action<wbr>Creator</a>
+					<li class=" tsd-kind-enum tsd-parent-kind-module tsd-is-not-exported">
+						<a href="../enums/test_helpers.constants.gestureenum.html" class="tsd-kind-icon">gesture<wbr>Enum</a>
+					</li>
+					<li class=" tsd-kind-variable tsd-parent-kind-module">
+						<a href="test_helpers.constants.html#gestures" class="tsd-kind-icon">gestures</a>
 					</li>
 				</ul>
 			</nav>
