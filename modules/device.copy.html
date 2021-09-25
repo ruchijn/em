@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>splitAtSelection | em</title>
+	<title>copy | em</title>
 	<meta name="description" content="Documentation for em">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,10 +54,10 @@
 					<a href="device.html">device</a>
 				</li>
 				<li>
-					<a href="device.splitatselection.html">splitAtSelection</a>
+					<a href="device.copy.html">copy</a>
 				</li>
 			</ul>
-			<h1>Module splitAtSelection</h1>
+			<h1>Module copy</h1>
 		</div>
 	</div>
 </header>
@@ -70,8 +70,7 @@
 						<section class="tsd-index-section ">
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-function tsd-parent-kind-module"><a href="device.splitatselection.html#splitatselection" class="tsd-kind-icon">split<wbr>AtSelection</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-module tsd-is-not-exported"><a href="device.splitatselection.html#splitnode" class="tsd-kind-icon">split<wbr>Node</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="device.copy.html#copy" class="tsd-kind-icon">copy</a></li>
 							</ul>
 						</section>
 					</div>
@@ -80,64 +79,30 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Functions</h2>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
-					<a name="splitatselection" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagConst">Const</span> split<wbr>AtSelection</h3>
+					<a name="copy" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> copy</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">split<wbr>AtSelection<span class="tsd-signature-symbol">(</span>el<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">HTMLElement</span>, range<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Range</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">{ </span>left<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>right<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> }</span></li>
+						<li class="tsd-signature tsd-kind-icon">copy<span class="tsd-signature-symbol">(</span>s<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ruchijn/em/blob/632ad6e/src/device/splitAtSelection.ts#L26">src/device/splitAtSelection.ts:26</a></li>
+									<li>Defined in <a href="https://github.com/ruchijn/em/blob/44ad684/src/device/copy.ts#L5">src/device/copy.ts:5</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Splits the given element into two proper html value at the current selection.</p>
+									<p>Copies a string directly to the clipboard by simulating a button click with ClipboadJS.</p>
 								</div>
 							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>el: <span class="tsd-signature-type">HTMLElement</span></h5>
-								</li>
-								<li>
-									<h5>range: <span class="tsd-signature-type">Range</span></h5>
+									<h5>s: <span class="tsd-signature-type">string</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">null</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">{ </span>left<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">; </span>right<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> }</span></h4>
-						</li>
-					</ul>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module tsd-is-not-exported">
-					<a name="splitnode" class="tsd-anchor"></a>
-					<h3>split<wbr>Node</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module tsd-is-not-exported">
-						<li class="tsd-signature tsd-kind-icon">split<wbr>Node<span class="tsd-signature-symbol">(</span>root<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">HTMLElement</span>, range<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Range</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">{ </span>next<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Range</span><span class="tsd-signature-symbol">; </span>previous<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Range</span><span class="tsd-signature-symbol"> }</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/ruchijn/em/blob/632ad6e/src/device/splitAtSelection.ts#L4">src/device/splitAtSelection.ts:4</a></li>
-								</ul>
-							</aside>
-							<div class="tsd-comment tsd-typography">
-								<div class="lead">
-									<p>Split given root node into two different ranges at the given selection.</p>
-								</div>
-							</div>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>root: <span class="tsd-signature-type">HTMLElement</span></h5>
-								</li>
-								<li>
-									<h5>range: <span class="tsd-signature-type">Range</span></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-symbol">{ </span>next<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Range</span><span class="tsd-signature-symbol">; </span>previous<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Range</span><span class="tsd-signature-symbol"> }</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -152,8 +117,8 @@
 							<li class=" tsd-kind-module tsd-parent-kind-module">
 								<a href="device.asyncfocus.html">async<wbr>Focus</a>
 							</li>
-							<li class=" tsd-kind-module tsd-parent-kind-module">
-								<a href="device.clearselection.html">clear<wbr>Selection</a>
+							<li class="current tsd-kind-module tsd-parent-kind-module">
+								<a href="device.copy.html">copy</a>
 							</li>
 							<li class=" tsd-kind-module tsd-parent-kind-module">
 								<a href="device.download.html">download</a>
@@ -162,16 +127,16 @@
 								<a href="device.gettextcontentfromhtml.html">get<wbr>Text<wbr>Content<wbr>FromHTML</a>
 							</li>
 							<li class=" tsd-kind-module tsd-parent-kind-module">
-								<a href="device.modalcleanup.html">modal<wbr>Cleanup</a>
+								<a href="device.router.html">router</a>
 							</li>
 							<li class=" tsd-kind-module tsd-parent-kind-module">
 								<a href="device.scrollcursorintoview.html">scroll<wbr>Cursor<wbr>Into<wbr>View</a>
 							</li>
 							<li class=" tsd-kind-module tsd-parent-kind-module">
-								<a href="device.selectnexteditable.html">select<wbr>Next<wbr>Editable</a>
+								<a href="device.scrollto.html">scroll<wbr>To</a>
 							</li>
-							<li class="current tsd-kind-module tsd-parent-kind-module">
-								<a href="device.splitatselection.html">split<wbr>AtSelection</a>
+							<li class=" tsd-kind-module tsd-parent-kind-module">
+								<a href="device.selection.html">selection</a>
 							</li>
 						</ul>
 					</li>
@@ -180,10 +145,7 @@
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="device.splitatselection.html#splitatselection" class="tsd-kind-icon">split<wbr>AtSelection</a>
-					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-module tsd-is-not-exported">
-						<a href="device.splitatselection.html#splitnode" class="tsd-kind-icon">split<wbr>Node</a>
+						<a href="device.copy.html#copy" class="tsd-kind-icon">copy</a>
 					</li>
 				</ul>
 			</nav>

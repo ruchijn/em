@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>clearSelection | em</title>
+	<title>cursorCleared | em</title>
 	<meta name="description" content="Documentation for em">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -51,13 +51,13 @@
 		<div class="container">
 			<ul class="tsd-breadcrumb">
 				<li>
-					<a href="device.html">device</a>
+					<a href="reducers.html">reducers</a>
 				</li>
 				<li>
-					<a href="device.clearselection.html">clearSelection</a>
+					<a href="reducers.cursorcleared.html">cursorCleared</a>
 				</li>
 			</ul>
-			<h1>Module clearSelection</h1>
+			<h1>Module cursorCleared</h1>
 		</div>
 	</div>
 </header>
@@ -70,7 +70,7 @@
 						<section class="tsd-index-section ">
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-function tsd-parent-kind-module"><a href="device.clearselection.html#clearselection" class="tsd-kind-icon">clear<wbr>Selection</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-module"><a href="reducers.cursorcleared.html#cursorcleared" class="tsd-kind-icon">cursor<wbr>Cleared</a></li>
 							</ul>
 						</section>
 					</div>
@@ -79,24 +79,38 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Functions</h2>
 				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
-					<a name="clearselection" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagConst">Const</span> clear<wbr>Selection</h3>
+					<a name="cursorcleared" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> cursor<wbr>Cleared</h3>
 					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">clear<wbr>Selection<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+						<li class="tsd-signature tsd-kind-icon">cursor<wbr>Cleared<span class="tsd-signature-symbol">(</span>state<span class="tsd-signature-symbol">: </span><a href="../interfaces/_types.state.state.html" class="tsd-signature-type">State</a>, options<span class="tsd-signature-symbol">: </span><span class="tsd-signature-symbol">{ </span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> }</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/_types.state.state.html" class="tsd-signature-type">State</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/ruchijn/em/blob/632ad6e/src/device/clearSelection.ts#L2">src/device/clearSelection.ts:2</a></li>
+									<li>Defined in <a href="https://github.com/ruchijn/em/blob/44ad684/src/reducers/cursorCleared.ts#L6">src/reducers/cursorCleared.ts:6</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
 								<div class="lead">
-									<p>Clears the browser selection.</p>
+									<p>Set state.cursorCleared which controls a special state in which the cursor is rendered as an empty string. In this state the thought can be deleted or edited, but if the user navigates away the thought is restored to its previous value.</p>
 								</div>
 							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>state: <a href="../interfaces/_types.state.state.html" class="tsd-signature-type">State</a></h5>
+								</li>
+								<li>
+									<h5>options: <span class="tsd-signature-symbol">{ </span>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span><span class="tsd-signature-symbol"> }</span></h5>
+									<ul class="tsd-parameters">
+										<li class="tsd-parameter">
+											<h5>value<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span></h5>
+										</li>
+									</ul>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/_types.state.state.html" class="tsd-signature-type">State</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -106,31 +120,10 @@
 			<nav class="tsd-navigation primary">
 				<ul>
 					<li class="current tsd-kind-module tsd-is-not-exported">
-						<a href="device.html">device</a>
+						<a href="reducers.html">reducers</a>
 						<ul>
-							<li class=" tsd-kind-module tsd-parent-kind-module">
-								<a href="device.asyncfocus.html">async<wbr>Focus</a>
-							</li>
 							<li class="current tsd-kind-module tsd-parent-kind-module">
-								<a href="device.clearselection.html">clear<wbr>Selection</a>
-							</li>
-							<li class=" tsd-kind-module tsd-parent-kind-module">
-								<a href="device.download.html">download</a>
-							</li>
-							<li class=" tsd-kind-module tsd-parent-kind-module">
-								<a href="device.gettextcontentfromhtml.html">get<wbr>Text<wbr>Content<wbr>FromHTML</a>
-							</li>
-							<li class=" tsd-kind-module tsd-parent-kind-module">
-								<a href="device.modalcleanup.html">modal<wbr>Cleanup</a>
-							</li>
-							<li class=" tsd-kind-module tsd-parent-kind-module">
-								<a href="device.scrollcursorintoview.html">scroll<wbr>Cursor<wbr>Into<wbr>View</a>
-							</li>
-							<li class=" tsd-kind-module tsd-parent-kind-module">
-								<a href="device.selectnexteditable.html">select<wbr>Next<wbr>Editable</a>
-							</li>
-							<li class=" tsd-kind-module tsd-parent-kind-module">
-								<a href="device.splitatselection.html">split<wbr>AtSelection</a>
+								<a href="reducers.cursorcleared.html">cursor<wbr>Cleared</a>
 							</li>
 						</ul>
 					</li>
@@ -139,7 +132,7 @@
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
 					<li class=" tsd-kind-function tsd-parent-kind-module">
-						<a href="device.clearselection.html#clearselection" class="tsd-kind-icon">clear<wbr>Selection</a>
+						<a href="reducers.cursorcleared.html#cursorcleared" class="tsd-kind-icon">cursor<wbr>Cleared</a>
 					</li>
 				</ul>
 			</nav>
